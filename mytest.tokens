@@ -1,0 +1,6 @@
+Token { kind: Int, line: 1, column: 1 }
+Token { kind: Identifier("x"), line: 1, column: 5 }
+Token { kind: Assign, line: 1, column: 7 }
+Token { kind: IntLiteral(5), line: 1, column: 9 }
+Token { kind: Semicolon, line: 1, column: 10 }
+Token { kind: EOF, line: 1, column: 11 }

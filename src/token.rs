@@ -1,14 +1,21 @@
 #[derive(Debug, Clone, PartialEq)]
 pub enum TokenKind{
     //Literals
-    Integer(i64),
-    Float(f64),
+    IntegerLiteral(i64),
+    FloatLiteral(f64),
     Identifier(String),
     StringLiteral(String),
+    BoolLiteral(bool),
+
+    //these are literal keywords, upper are the values
+    Integer,
+    Float,
+    Bool,
+    String,
 
     //Keywords
     Let,
-    Func,
+    Function,
     If,
     Else,
     Return,
@@ -37,7 +44,7 @@ pub enum TokenKind{
     RightParen,
     LeftBrace,
     RightBrace,
-    Semicolon,
+    SemiColon,
     Colon,
     Comma,
     Arrow,

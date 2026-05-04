@@ -7,7 +7,10 @@ pub enum Type {
     Bool,
     String,
     Void,
-    Function { params: Vec<Type>, return_type: Box<Type> },
+    Function {
+        params: Vec<Type>,
+        return_type: Box<Type>,
+    },
     Unknown,
 }
 

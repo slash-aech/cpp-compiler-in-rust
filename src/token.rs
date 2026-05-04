@@ -1,5 +1,5 @@
 #[derive(Debug, Clone, PartialEq)]
-pub enum TokenKind{
+pub enum TokenKind {
     //Literals
     IntegerLiteral(i64),
     FloatLiteral(f64),
@@ -52,15 +52,20 @@ pub enum TokenKind{
     EOF,
 }
 #[derive(Debug, Clone)]
-pub struct Token{
+pub struct Token {
     pub kind: TokenKind,
     pub lexeme: String,
     pub line: usize,
     pub column: usize,
 }
 
-impl Token{
-    pub fn new(kind: TokenKind, lexeme: String, line:usize, column:usize) -> Self{
-        Token{kind, lexeme, line, column}
+impl Token {
+    pub fn new(kind: TokenKind, lexeme: String, line: usize, column: usize) -> Self {
+        Token {
+            kind,
+            lexeme,
+            line,
+            column,
+        }
     }
 }

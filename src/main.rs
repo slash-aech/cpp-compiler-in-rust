@@ -1,8 +1,8 @@
 // src/main.rs
 
-mod token;
-mod lexer;
 mod ast;
+mod lexer;
+mod token;
 
 use lexer::Lexer;
 
@@ -33,10 +33,13 @@ fn main() {
         }
         Err(errors) => {
             for err in errors {
-                eprintln!("Lexer error at {}:{}: {}", err.line, err.column, err.message);
+                eprintln!(
+                    "Lexer error at {}:{}: {}",
+                    err.line, err.column, err.message
+                );
             }
             return;
         }
     };
-    println!("{:?}",tokens);
+    println!("{:?}", tokens);
 }

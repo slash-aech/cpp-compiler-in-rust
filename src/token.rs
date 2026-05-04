@@ -14,7 +14,6 @@ pub enum TokenKind{
     String,
 
     //Keywords
-    Let,
     Function,
     If,
     Else,

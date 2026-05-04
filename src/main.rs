@@ -1,41 +1,42 @@
-mod lexer;
+// src/main.rs
+
 mod token;
+mod lexer;
+mod ast;
 
 use lexer::Lexer;
-use std::{env,fs};
 
 fn main() {
-    println!("Hello, world!");
-    let args: Vec<String> = env::args().collect();
-
-    if args.len()!=2{
-        eprintln!("Usage: compiler <filename.cpp>");
-        std::process::exit(1);
-    }
-    let filename = &args[1];
-    let source = fs::read_to_string(filename)
-        .expect("failed to read the file");
-    println!("Lexin {}...", filename);
-
-    let mut lexer = Lexer::new(&source);
-    let mut tokens = Vec::new();
-
-    loop{
-        let tok = lexer.next_token();
-        tokens.push(tok.clone());
-        if tok.kind == token::TokenKind::EOF{
-            break;
+    let source = r#"
+        int add(a, b) {
+            return a + b;
         }
-    }
-    for t in &tokens{
-        println!("{:?}", t);
-    }
-    let out = filename.replace(".cpp", ".tokens");
-    let dump = tokens
-        .iter()
-        .map(|t| format!("{:?}\n",t))
-        .collect::<String>();
 
-        fs::write(&out, dump).expect("Failed to write the tokens");
-        println!("Tokens written to {}", out);
+        int main() {
+            int x = 10;
+            int y = 20;
+            int result = add(x, y);
+            return result;
+        }
+    "#;
+
+    println!("=== Source Code ===");
+    println!("{}", source);
+
+    // Lexical analysis
+    println!("\n=== Lexing ===");
+    let mut lexer = Lexer::new(source);
+    let tokens = match lexer.tokenize() {
+        Ok(tokens) => {
+            println!("Lexing successful: {} tokens", tokens.len());
+            tokens
+        }
+        Err(errors) => {
+            for err in errors {
+                eprintln!("Lexer error at {}:{}: {}", err.line, err.column, err.message);
+            }
+            return;
+        }
+    };
+    println!("{:?}",tokens);
 }

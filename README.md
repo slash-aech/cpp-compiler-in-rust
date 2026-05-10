@@ -1,7 +1,7 @@
 Not yet completed, please wait for just a few....weeks?
-I've addded lexical support for now, and will complete the parsing when this exam of mine ends. 
+I've addded lexical support for now, and will complete the parsing when this exam of mine ends. The project is a personal project, contributions are not really something I'm accepting now, it's more on an educational side.
 # Making a C++ compiler in rust to show them why rust is safer and better
-## Any kind of help is really appreciated, I'm not able to find the best of resources, been following this shady website for it but let's see
+### Any kind of help for reference is really appreciated, I'm not able to find the best of resources, been following this shady website for it but let's see
 
 Usage
 ``` 
